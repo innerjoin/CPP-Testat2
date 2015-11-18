@@ -5,7 +5,6 @@
 #include "xml_listener.h"
 #include "cute_runner.h"
 
-
 void testWordCompareLess() {
 	Word w1 {"halle"};
 	Word w2 {"hallo"};
@@ -119,12 +118,6 @@ void runAllTests(int argc, char const *argv[]){
     // Kwic.h
     s.push_back(CUTE(testKwic));
     s.push_back(CUTE(testRotationsForWords));
-
-//	s.push_back(CUTE(testPalindromeValid));
-//	s.push_back(CUTE(testPalindromeEmptyString));
-//	s.push_back(CUTE(testPalindromeOdd));
-//	s.push_back(CUTE(testPalindromeInvalid));
-//	s.push_back(CUTE(testPalindromeSingleDigit));
 
 	cute::xml_file_opener xmlfile(argc,argv);
 	cute::xml_listener<cute::ide_listener<> >  lis(xmlfile.out);

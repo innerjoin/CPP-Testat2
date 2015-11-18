@@ -6,6 +6,7 @@
 #include <iterator>
 
 using set_vect = std::set<std::vector<Word>>;
+using vect_vect = std::vector<std::vector<Word>>;
 
 std::ostream& operator << (std::ostream &os, std::vector<Word> const &sentence) {
     copy(sentence.begin(), sentence.end(), std::ostream_iterator<Word>(os, " "));
@@ -13,9 +14,8 @@ std::ostream& operator << (std::ostream &os, std::vector<Word> const &sentence) 
 }
 
 void kwic(std::istream &is, std::ostream &os) {
-    //using iterator = std::istream_iterator<std::vector<Word>>;
-    std::vector<std::vector<Word>> lines;
-    std::set<std::vector<Word>> rLines{ };
+    vect_vect lines {};
+    set_vect rLines {};
     std::string line;
     while(std::getline(is, line)) {
         std::vector<Word> sentence;

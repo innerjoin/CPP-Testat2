@@ -55,20 +55,4 @@ inline std::ostream & operator<<(std::ostream &os, const Word &w) {
 	return os;
 }
 
-//inline bool is_palindrome(std::string ps){
-////	int i = 0;
-////	int j = ps.length() - 1;
-////	for(; i <= j; i++, j--) {
-////		if(tolower(ps[i]) != tolower(ps[j])) return false;
-////	}
-////	return true;
-////
-////	std::transform(ps.begin(), ps.end(), ps.begin(), tolower);
-//    std::cout << "hello" + ps; // test only!!
-//    return equal(ps.begin(), ps.end(), ps.rbegin(),[](char l,char r){
-//    	return tolower(l)!=tolower(r);
-//    });
-//
-//}
-
 #endif

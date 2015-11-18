@@ -26,16 +26,3 @@ void Word::read(std::istream & is) {
 void Word::print(std::ostream & os) const {
 	os << this->word;
 }
-
-//std::istream & operator>>(std::istream & is, Word & word) {
-//	return is;
-//}
-
-
-//std::istream & Word::read(std::istream & is) {
-//	return is;
-//}
-//
-//std::istream & operator>>(std::istream & is, std::vector<Word> & word) {
-//	return word.read(is);
-//}
