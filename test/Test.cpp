@@ -6,7 +6,7 @@
 #include "cute_runner.h"
 
 void testWordCompareLess() {
-	Word w1 {"halle"};
+	Word w1 {"h"};
 	Word w2 {"hallo"};
 
 	ASSERT_LESS(w1, w2);

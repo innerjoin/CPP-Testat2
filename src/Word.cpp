@@ -8,11 +8,9 @@ void Word::read(std::istream & is) {
 	char character {};
 
 	while (is.get(character)) {
-		if(newVal.empty())
-			continue;
-		else if (std::isalpha(character))
+		if (std::isalpha(character))
 			newVal += character;
-		else
+		else if(!newVal.empty())
 			break;
 	}
 

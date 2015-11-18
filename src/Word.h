@@ -7,7 +7,7 @@
 class Word {
 
 private:
-	std::string word = "";
+	std::string word {};
 
 public:
 	explicit Word(const std::string word="");
@@ -15,17 +15,17 @@ public:
 	void read(std::istream &is);
 	void print(std::ostream &os) const;
 
-	inline bool operator >(const Word &w) const {
+	inline bool operator <(const Word &w) const {
 	    return std::lexicographical_compare(
 				this->word.begin(), this->word.end(),
 	    		w.word.begin(), w.word.end(),
 	    		[](const char l, const char r){
-	    	return std::tolower(l) > std::tolower(r);
+	    	return std::tolower(l) < std::tolower(r);
 	    });
 	}
 
-	inline bool operator <(const Word &w) const {
-		return w > *this;
+	inline bool operator >(const Word &w) const {
+		return w < *this;
 	}
 
 	inline bool operator >=(const Word &w) const {
