@@ -1,12 +1,8 @@
-#include "Word.h"
+#include "Kwic.h"
 #include <iostream>
 //#include <vector>
 
 int main() {
 	std::cout << "C++ Testat 2 by jengeler & lsteiger\n";
-	Word w{};
-	std::cin >> w;
-	std::cout << w;
-//	std::vector<Word> allWords{};
-//	std::cin >> allWords;
+	kwic(std::cin, std::cout);
 }

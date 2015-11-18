@@ -1,6 +1,7 @@
 #ifndef KWIC_H_
 #define KWIC_H_
 
+#include "Word.h"
 #include <iosfwd>
 #include <vector>
 #include <set>

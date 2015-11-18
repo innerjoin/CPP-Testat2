@@ -6,26 +6,6 @@
 #include "cute_runner.h"
 
 
-//void testPalindromeValid() {
-//	ASSERT_EQUAL(true, is_palindrome("Otto"));
-//}
-//
-//void testPalindromeEmptyString() {
-//	ASSERT_EQUAL(true, is_palindrome(""));
-//}
-//
-//void testPalindromeSingleDigit() {
-//	ASSERT_EQUAL(true, is_palindrome("x"));
-//}
-//
-//void testPalindromeOdd() {
-//	ASSERT_EQUAL(true, is_palindrome("abcba"));
-//}
-//
-//void testPalindromeInvalid() {
-//	ASSERT_EQUAL(false, is_palindrome("fffuuu"));
-//}
-
 void testWordCompareLess() {
 	Word w1 {"halle"};
 	Word w2 {"hallo"};
@@ -94,13 +74,26 @@ void testRightShiftToInput() {
 	}
 }
 
+void testKwic() {
+    std::istringstream iss {
+            "this is a test\n"
+            "this is another test"};
+    std::string expected {
+            "a test this is \n"
+            "another test this is \n"
+            "is a test this \n"
+            "is another test this \n"
+            "test this is a \n"
+            "test this is another \n"
+            "this is a test \n"
+            "this is another test \n"};
+    std::ostringstream oss;
+    kwic(iss, oss);
+    ASSERT_EQUAL(expected, oss.str());
+}
+
 void testRotationsForWords() {
     std::vector<Word> words = {Word("this"), Word("is"), Word("a"), Word("test")};
-//    std::vector<Word> words = {"this", "is", "a", "test"};
-//    std::array<Word> kwic1 = {"a", "test", "this", "is"};
-//    std::array<Word> kwic2 = {"is", "a", "test", "this"};
-//    std::array<Word> kwic3 = {"test", "this", "is", "a"};
-//    std::array<Word> kwic4 = {"this", "is", "a", "test"};
     std::set<std::vector<Word>> expected {
             {Word("a"), Word("test"), Word("this"), Word("is")},
             {Word("is"), Word("a"), Word("test"), Word("this")},
@@ -110,13 +103,6 @@ void testRotationsForWords() {
 
     std::set<std::vector<Word>> results = getRotationsForWords(words);
     ASSERT_EQUAL(expected, results);
-//    for(auto result : results ) {
-//
-//    }
-//    ASSERT_EQUAL(kwic1, results.at(0));
-//    ASSERT_EQUAL(kwic2, results.at(1));
-//    ASSERT_EQUAL(kwic3, results.at(2));
-//    ASSERT_EQUAL(kwic4, results.at(3));
 }
 
 void runAllTests(int argc, char const *argv[]){
@@ -131,6 +117,7 @@ void runAllTests(int argc, char const *argv[]){
     s.push_back(CUTE(testEmptyInput));
 	s.push_back(CUTE(testRightShiftToInput));
     // Kwic.h
+    s.push_back(CUTE(testKwic));
     s.push_back(CUTE(testRotationsForWords));
 
 //	s.push_back(CUTE(testPalindromeValid));
