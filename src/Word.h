@@ -37,7 +37,7 @@ public:
 	}
 
 	inline bool operator ==(const Word &w) const {
-		return !(w > *this && w < *this);
+		return !(w > *this || w < *this);
 	}
 
 	inline bool operator !=(const Word &w) const {
